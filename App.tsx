@@ -9,6 +9,8 @@ import {
   Nunito_400Regular,
 } from '@expo-google-fonts/nunito';
 import { Loading } from '@components/Loading';
+import { ThemeProvider } from 'styled-components/native';
+import theme from './src/theme';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -16,16 +18,18 @@ export default function App() {
     Nunito_700Bold,
   });
 
-  if (fontsLoaded) {
+  if (!fontsLoaded) {
     return <Loading />;
   }
 
   return (
     <View style={{ flex: 1 }}>
       <NavigationContainer>
-        <SafeAreaView style={{ flexGrow: 1 }}>
-          <AppRoutes />
-        </SafeAreaView>
+        <ThemeProvider theme={theme}>
+          <SafeAreaView style={{ flexGrow: 1 }}>
+            <AppRoutes />
+          </SafeAreaView>
+        </ThemeProvider>
       </NavigationContainer>
     </View>
   );

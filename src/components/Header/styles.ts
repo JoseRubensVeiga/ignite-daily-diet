@@ -3,7 +3,6 @@ import { styled } from 'styled-components/native';
 export const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  padding: 30px 20px 0;
 `;
 
 export const LogoImage = styled.Image`
