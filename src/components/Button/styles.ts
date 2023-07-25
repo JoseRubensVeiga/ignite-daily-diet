@@ -1,7 +1,9 @@
 import { Feather } from '@expo/vector-icons';
 import { css, styled } from 'styled-components/native';
 
-export const ButtonContainer = styled.View`
+export const Container = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.4,
+})`
   height: 50px;
   background-color: ${({ theme }) => theme.colors.gray200};
   width: 100%;

@@ -28,6 +28,10 @@ export function Home() {
     navigation.navigate('dashboard');
   }
 
+  function handleGoToNewMeal() {
+    navigation.navigate('newMeal');
+  }
+
   return (
     <ScrollView
       style={{ paddingHorizontal: 20, paddingTop: statusBarHeight + 15 }}
@@ -45,7 +49,11 @@ export function Home() {
       <MealsContainer>
         <MealTitle>Refeições</MealTitle>
 
-        <Button title="Nova refeição" iconName="plus" />
+        <Button
+          title="Nova refeição"
+          iconName="plus"
+          onPress={handleGoToNewMeal}
+        />
 
         <DailyMealContainer>
           <DailyMealTitle>12/08/22</DailyMealTitle>
