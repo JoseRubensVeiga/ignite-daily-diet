@@ -1,5 +1,4 @@
 import 'react-native-gesture-handler';
-import { View } from 'react-native';
 import { AppRoutes } from './src/routes';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -11,6 +10,7 @@ import {
 import { Loading } from '@components/Loading';
 import { ThemeProvider } from 'styled-components/native';
 import theme from './src/theme';
+import { Platform, StatusBar } from 'react-native';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -23,14 +23,15 @@ export default function App() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
-      <NavigationContainer>
-        <ThemeProvider theme={theme}>
-          <SafeAreaView style={{ flexGrow: 1 }}>
-            <AppRoutes />
-          </SafeAreaView>
-        </ThemeProvider>
-      </NavigationContainer>
-    </View>
+    <NavigationContainer>
+      <ThemeProvider theme={theme}>
+        <StatusBar
+          barStyle={'dark-content'}
+          backgroundColor="transparent"
+          translucent
+        />
+        <AppRoutes />
+      </ThemeProvider>
+    </NavigationContainer>
   );
 }
